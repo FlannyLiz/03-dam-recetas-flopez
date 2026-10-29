@@ -10,8 +10,11 @@ class RecipeService {
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = jsonDecode(response.body);
-      final List<dynamic> lista = data['recipes'];
-      return lista.map((json) => Receta.fromJson(json)).toList();
+      final List<dynamic> lista = (data['recipes'] is List) ? data['recipes'] as List<dynamic> : const [];
+      return lista
+          .whereType<Map<String, dynamic>>()
+          .map((json) => Receta.fromJson(json))
+          .toList();
     } else {
       throw Exception('Error al cargar recetas: ${response.statusCode}');
     }

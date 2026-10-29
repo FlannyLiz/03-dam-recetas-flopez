@@ -34,18 +34,21 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 127, 1, 133),
-      body: const Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Icons.restaurant, color: Colors.white, size: 90),
-          SizedBox(height: 16),
-          Text(
-            'Recetas App',
-            style: TextStyle(color: Colors.white, fontSize: 28),
-          ),
-          SizedBox(height: 24),
-          CircularProgressIndicator(color: Colors.white),
-        ],
+      body: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(Icons.restaurant, color: Colors.white, size: 90),
+            SizedBox(height: 16),
+            Text(
+              'Recetas App',
+              style: TextStyle(color: Colors.white, fontSize: 28),
+            ),
+            SizedBox(height: 24),
+            CircularProgressIndicator(color: Colors.white),
+          ],
+        ),
       ),
     );
   }
